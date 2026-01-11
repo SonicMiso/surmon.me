@@ -6,7 +6,6 @@
   import AsideSearch from './search.vue'
   import AsideStatistic from './statistic.vue'
   import AsideArticle from './article.vue'
-  import AsideMammon from './mammon.vue'
   import AsideTag from './tag.vue'
   import AsideAnchor from './anchor.vue'
   import AsideCalendar from './calendar.vue'
@@ -26,24 +25,10 @@
     <div class="module">
       <aside-article />
     </div>
-    <client-only transition>
-      <div class="module mammon">
-        <aside-mammon />
-      </div>
-    </client-only>
     <div class="module">
       <aside-calendar />
     </div>
     <div class="aside-sticky-box">
-      <div class="module mammon-square">
-        <client-only>
-          <Adsense
-            ins-style="display:inline-block;width:250px;height:250px"
-            data-ad-slot="6138120718"
-            class="content"
-          />
-        </client-only>
-      </div>
       <div class="module">
         <client-only v-if="isArticlePage">
           <aside-anchor class="sticky-module" />
@@ -68,23 +53,6 @@
       margin-bottom: $gap-lg;
       @include mix.radius-box($radius-sm);
       @include mix.common-bg-module();
-
-      &.mammon {
-        width: 100%;
-      }
-
-      &.mammon-square {
-        height: $aside-width;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        .content {
-          height: 250px;
-          width: 250px;
-          overflow: hidden;
-        }
-      }
 
       .sticky-module {
         max-height: calc(100vh - 250px - #{$header-height + $gap-lg * 4});

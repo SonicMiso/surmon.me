@@ -117,10 +117,6 @@ select:-webkit-autofill {
   @include mix.center-placeholder;
 }
 
-.mammon-box {
-  @extend .center-placeholder;
-}
-
 // for module transition
 .module-enter-active,
 .module-leave-active {

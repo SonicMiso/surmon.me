@@ -9,7 +9,7 @@ export const BFF_CONFIG = Object.freeze({
   server_local_url: 'http://localhost:3000',
   tunnel_url_prefix: '/_tunnel',
   proxy_url_prefix: '/_proxy',
-  proxy_allow_list_regexp: /^https:\/\/([a-z0-9-]+\.)*surmon\.(me|cn)/
+  proxy_allow_list_regexp: /^https:\/\/([a-z0-9-]+\.)*sonicmiso\.(zone)/
 })
 
 export const APP_CONFIG = Object.freeze({
@@ -21,6 +21,14 @@ export const APP_CONFIG = Object.freeze({
   default_og_image: '/images/og-social-card.jpg',
   title_separator: ' | ',
   primary_color: '#0088f5'
+})
+
+// Redis Configuration
+export const REDIS = Object.freeze({
+  host: 'redis-17920.c14.us-east-1-3.ec2.cloud.redislabs.com',
+  port: 17920,
+  username: 'Tardis',
+  password: 'dW3fJA8nN7L!wrz'
 })
 
 export const APP_PROFILE = Object.freeze({
@@ -45,9 +53,8 @@ export const MAPBOX_CONFIG = Object.freeze({
 })
 
 export const IDENTITIES = Object.freeze({
-  GOOGLE_ANALYTICS_MEASUREMENT_ID: 'G-R40DDTSYNQ',
-  GOOGLE_ADSENSE_CLIENT_ID: 'ca-pub-4710915636313788',
-  SENTRY_PUBLIC_DSN: 'https://4a5f194531fe4527879812e4a4d8cf89@o360897.ingest.sentry.io/4505569138966528',
+  SENTRY_PUBLIC_DSN:
+    'https://542918dc9f4f53d44408b647556111e1@o4510694358843392.ingest.us.sentry.io/4510694365724672',
   YOUTUBE_CHANNEL_ID: 'UCoL-j6T28PLSJ2U6ZdONS0w',
   YOUTUBE_CHANNEL_SHORT_ID: '@surmon_v',
   MUSIC_163_BGM_ALBUM_ID: '638949385',

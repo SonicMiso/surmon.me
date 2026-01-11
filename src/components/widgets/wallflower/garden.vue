@@ -5,7 +5,7 @@
   import { ATTRIBUTE_NAME } from './directive'
 
   const EN_FLOWERS = ['💙', '🤍', '❤️']
-  const ZH_FLOWERS = ['布施', '持戒', '忍辱', '精進', '禪定', '般若']
+  const ZH_FLOWERS = ['别乱点', '真别乱点', '真别乱点了', '我说真别乱点了吧', '？？？']
 
   const { isZhLang } = useEnhancer()
   const state = reactive({

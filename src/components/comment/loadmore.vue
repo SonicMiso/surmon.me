@@ -17,7 +17,6 @@
     (e: CommentEvents.Page, page: number): void
   }>()
 
-  const { gtag } = useEnhancer()
   const hasMore = computed(() => {
     return (
       props.pagination &&
@@ -29,9 +28,6 @@
   const handleLoadmore = () => {
     if (props.pagination) {
       emit(CommentEvents.Page, props.pagination.current_page + 1)
-      gtag?.event('loadmore', {
-        event_category: GAEventCategories.Comment
-      })
     }
   }
 </script>

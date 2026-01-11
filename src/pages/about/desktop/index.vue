@@ -18,13 +18,10 @@
   import AboutPageBanner from './banner.vue'
   import { useAboutPageMeta, i18ns } from '../shared'
 
-  const { gtag, globalState } = useEnhancer()
+  const { globalState } = useEnhancer()
   const { adminProfile, appOption, goLink } = useStores()
 
   const handleGTagEvent = (event: string) => {
-    gtag?.event(event, {
-      event_category: GAEventCategories.About
-    })
   }
 
   const handleSponsor = () => {
@@ -128,7 +125,7 @@
 
 <template>
   <div class="about-page">
-    <about-page-banner @g-tag-event="handleGTagEvent" />
+    <about-page-banner/>
     <container class="page-content">
       <div class="module-buttons">
         <template :key="index" v-for="(item, index) in moduleButtons">

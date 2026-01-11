@@ -6,7 +6,6 @@
   import { dateToHuman, HumanDate, humanDateToYMD } from '/@/transforms/moment'
   import CalendarDay from './day.vue'
 
-  const { gtag } = useEnhancer()
   const { articleCalendar, instagramCalendar, githubCalendar } = useStores()
   const githubContributionsMap = computed(() => {
     return new Map(githubCalendar.days.map((day) => [day.date, day]))
@@ -25,9 +24,6 @@
   }
 
   const handleHover = () => {
-    gtag?.event('aggregate_calendar', {
-      event_category: GAEventCategories.About
-    })
   }
 
   // current month | day

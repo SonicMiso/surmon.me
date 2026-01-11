@@ -26,7 +26,6 @@ import cacher, { minutes, hours, days } from './server/utils/cacher'
 
 import { getRssXml } from './server/getters/rss'
 import { getSitemapXml } from './server/getters/sitemap'
-import { getGTagScript } from './server/getters/gtag'
 import { getAllWallpapers } from './server/getters/wallpaper'
 import { getMyGoogleMap } from './server/getters/my-google-map'
 import { getNPMStatistic } from './server/getters/npm'
@@ -83,19 +82,6 @@ app.usePathRequest('/sitemap.xml', async () => {
 // rss.xml
 app.usePathRequest('/rss.xml', async () => {
   return respond.xml(await getRssXml(cache))
-})
-
-// gtag script
-const getGtagCache = cacher.interval(cache, {
-  key: 'gtag',
-  ttl: days(7),
-  interval: days(3),
-  retry: hours(1),
-  getter: getGTagScript
-})
-
-app.usePathRequest('/gtag-script', async () => {
-  return respond.javascript(await getGtagCache())
 })
 
 // Bing wallpapers

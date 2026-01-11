@@ -47,7 +47,6 @@
       :fetching="threadsLatestMedias.fetching || threadsProfile.fetching || articleListStore.fetching"
     />
     <article-list
-      :mammon="false"
       :fetching="articleListStore.fetching"
       :articles="articleListStore.data"
       :pagination="articleListStore.pagination"

@@ -9,7 +9,6 @@ import { useRoute, useRouter } from 'vue-router'
 import { useCdnDomain, useCountryCode } from '/@/app/context'
 import { useGlobalState } from '/@/app/state'
 import { useI18n } from '/@/composables/i18n'
-import { useGtag, Gtag } from '/@/composables/gtag'
 import { useTheme, Theme } from '/@/composables/theme'
 import { useDefer, Defer } from '/@/composables/defer'
 import type { Popup } from '/@/composables/popup'
@@ -51,6 +50,5 @@ export const useEnhancer = () => {
 
     defer: (isClient ? useDefer() : undefined) as Defer,
     popup: (isClient ? usePopup() : undefined) as Popup,
-    gtag: (isClient ? useGtag() : undefined) as Gtag
   }
 }

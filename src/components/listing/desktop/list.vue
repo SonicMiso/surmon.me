@@ -14,11 +14,9 @@
     articles: Article[]
     pagination: Pagination | null
     fetching: boolean
-    mammon?: boolean
   }
 
   const props = withDefaults(defineProps<Props>(), {
-    mammon: true
   })
 
   const emit = defineEmits<{
@@ -65,26 +63,6 @@
         </template>
         <template #default>
           <div key="list">
-            <client-only>
-              <template v-if="mammon">
-                <Adsense
-                  v-if="isDarkTheme"
-                  ins-class="mammon-ins"
-                  data-ad-format="fluid"
-                  data-ad-layout-key="-hj-9+3a-97+6s"
-                  data-ad-slot="1765379407"
-                  class="article-list-mammon"
-                />
-                <Adsense
-                  v-else
-                  ins-class="mammon-ins"
-                  data-ad-format="fluid"
-                  data-ad-layout-key="-hj-9+3a-97+6s"
-                  data-ad-slot="1148538406"
-                  class="article-list-mammon"
-                />
-              </template>
-            </client-only>
             <transition-group name="list">
               <list-item
                 v-for="articleItem in articles"
@@ -171,20 +149,6 @@
             margin-top: $gap-lg;
           }
         }
-      }
-    }
-
-    .article-list-mammon {
-      width: 100%;
-      min-height: 10rem;
-      padding: $gap-sm;
-      margin-bottom: $gap-lg;
-      @include mix.common-bg-module();
-      @include mix.radius-box($radius-sm);
-
-      &::v-deep(.mammon-ins) {
-        margin: $gap-xs 0;
-        height: 100px;
       }
     }
 

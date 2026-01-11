@@ -12,9 +12,9 @@
   "type": "module",
   "main": "dist/bff.js",
   "scripts": {
-    "dev": "NODE_ENV=development tsx watch ./src/bff.ts",
-    "build": "NODE_ENV=production node ./bundler/index.js",
-    "start": "NODE_ENV=production node ./dist/bff.js",
+    "dev": "cross-env NODE_ENV=development tsx watch ./src/bff.ts",
+    "build": "cross-env NODE_ENV=production node ./bundler/index.js",
+    "start": "cross-env NODE_ENV=production node ./dist/bff.js",
     "lint": "eslint src",
     "format": "npm run lint --fix",
     "release": ". ./scripts/release-via-github.sh"
@@ -35,7 +35,6 @@
     "geojson": "^0.5.0",
     "highlight.js": "^11.11.x",
     "html-to-image": "^1.11.x",
-    "intersection-observer": "^0.12.2",
     "js-cookie": "^3.0.x",
     "lodash-es": "^4.17.x",
     "lozad": "^1.16.x",
@@ -70,6 +69,7 @@
     "@types/serialize-javascript": "^5.0.4",
     "@unhead/addons": "^2.x",
     "@vitejs/plugin-vue": "^6.x",
+    "cross-env": "^10.1.0",
     "eslint": "^9.x",
     "eslint-config-prettier": "^10.x",
     "eslint-plugin-prettier": "^5.x",

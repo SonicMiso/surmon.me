@@ -8,7 +8,7 @@
   import { APP_PROFILE } from '/@/configs/app.config'
   import { menus } from './menu'
 
-  const { i18n: _i18n, gtag, theme, globalState } = useEnhancer()
+  const { i18n: _i18n, theme, globalState } = useEnhancer()
   // enable header nav bar when full page layout
   const isEnabledNav = computed(() => !globalState.pageLayout.value.isNormal)
 
@@ -22,10 +22,6 @@
 
   const toggleTheme = () => {
     theme.toggle()
-    gtag?.event('switch_theme', {
-      event_category: GAEventCategories.Widget,
-      event_label: theme.theme.value
-    })
   }
 
   const languageIcon = computed(() => {

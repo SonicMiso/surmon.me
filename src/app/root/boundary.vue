@@ -16,6 +16,7 @@
   }
 
   onErrorCaptured((error: any) => {
+    console.log(error)
     globalState.setError(error)
     return false
   })

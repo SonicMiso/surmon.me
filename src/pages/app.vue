@@ -11,11 +11,8 @@
     isMobile?: boolean
   }>()
 
-  const { i18n: _i18n, gtag, isZhLang } = useEnhancer()
+  const { i18n: _i18n, isZhLang } = useEnhancer()
   const handleAppEvent = (name: string) => {
-    gtag?.event(name, {
-      event_category: GAEventCategories.App
-    })
   }
 
   usePageSeo(() => {

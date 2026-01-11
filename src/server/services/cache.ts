@@ -5,8 +5,9 @@
  */
 
 import { LRUCache } from 'lru-cache'
-import { createClient as createRedisClient } from '@redis/client'
+import { createClient as createRedisClient, RedisClientOptions } from '@redis/client'
 import { createLogger } from '@/utils/logger'
+import { REDIS } from '@/configs/app.config'
 
 export const logger = createLogger('BFF:Cache')
 
@@ -41,9 +42,27 @@ const createLRUStore = (): CacheStore => {
   }
 }
 
+const getOptions = () => {
+  const redisOptions: RedisClientOptions = {
+    socket: {
+      host: REDIS.host,
+      port: REDIS.port as number
+    }
+  }
+  if (REDIS.username) {
+    redisOptions.username = REDIS.username
+  }
+  if (REDIS.password) {
+    redisOptions.password = REDIS.password
+  }
+
+  return redisOptions
+}
+
 const createRedisStore = async (options?: CacheStoreOptions): Promise<CacheStore> => {
   // https://github.com/redis/node-redis
-  const client = createRedisClient()
+  const redisOptions = getOptions()
+  const client = createRedisClient(redisOptions)
   client.on('connect', () => logger.info('Redis connecting...'))
   client.on('reconnecting', () => logger.info('Redis reconnecting...'))
   client.on('ready', () => logger.success('Redis readied.'))

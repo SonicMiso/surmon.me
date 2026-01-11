@@ -12,9 +12,7 @@ import { computed, watch } from 'vue'
 import { createWebHistory } from 'vue-router'
 import { createHead } from '@unhead/vue/client'
 import { createMainApp } from '/@/app/main'
-import gtag from '/@/composables/gtag'
 import lozad from '/@/composables/lozad'
-import adsense from '/@/composables/adsense'
 import { createDefer } from '/@/composables/defer'
 import { createMusic } from '/@/composables/music'
 import { createPopup } from '/@/composables/popup'
@@ -70,17 +68,6 @@ app.use(music)
 app.use(lozad, { exportToGlobal: true })
 app.use(defer, { exportToGlobal: true })
 app.use(popup, { exportToGlobal: true })
-app.use(gtag, {
-  router,
-  id: IDENTITIES.GOOGLE_ANALYTICS_MEASUREMENT_ID,
-  config: { send_page_view: false },
-  customResourceURL: '/gtag-script'
-})
-
-// enable adsense on desktop only
-if (!globalState.userAgent.isMobile) {
-  app.use(adsense, { id: IDENTITIES.GOOGLE_ADSENSE_CLIENT_ID, enabledAutoAd: false })
-}
 
 // init: services with client
 exportEmojiRainToGlobal()

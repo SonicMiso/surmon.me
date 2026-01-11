@@ -6,12 +6,9 @@
   import { VALUABLE_LINKS } from '/@/configs/app.config'
 
   const { goLink } = useStores()
-  const { globalState, gtag } = useEnhancer()
+  const { globalState } = useEnhancer()
   const handleStatementModal = () => {
     globalState.toggleSwitcher('statement', true)
-    gtag?.event('statement_modal', {
-      event_category: GAEventCategories.Universal
-    })
   }
 </script>
 

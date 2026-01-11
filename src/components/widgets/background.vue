@@ -2,7 +2,7 @@
   import { useEnhancer } from '/@/app/enhancer'
   import { getAssetURL } from '/@/transforms/url'
   const { cdnDomain, isDarkTheme } = useEnhancer()
-  const backgroundImage = getAssetURL(cdnDomain, '/images/background.png')
+  const backgroundImage = getAssetURL(cdnDomain, '/images/background_v2.jpg')
 </script>
 
 <template>
